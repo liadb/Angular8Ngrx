@@ -1,0 +1,23 @@
+
+.container {
+  overflow: auto;
+  padding: 50px;
+
+  table {
+    width: 100%;
+    padding: 20px;
+
+    .fav-img {
+      max-width: 20px;
+      margin-right: 10px;
+    }
+
+    mat-icon {
+      cursor: pointer;
+    }
+  }
+
+
+}
+
+

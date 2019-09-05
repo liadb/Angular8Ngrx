@@ -1,0 +1,33 @@
+:host {
+  .search-box {
+    display: grid;
+    margin: 20px;
+    width: 300px;
+  }
+
+  .favorite-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 260px);
+    grid-gap: 20px;
+    padding: 20px;
+
+    .favorite-card {
+      width: 230px;
+      height: 250px;
+      .favorite-img {
+        height: 150px;
+      }
+    }
+
+    .add-favorite {
+      width: 230px;
+      height: 250px;
+      button {
+        height: 100%;
+        width: 100%;
+        font-size: 4em;
+      }
+    }
+  }
+}
+

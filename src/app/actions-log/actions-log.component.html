@@ -1,0 +1,30 @@
+<div class="container mat-elevation-z8">
+  <table mat-table [dataSource]="actions$" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef>Time</th>
+      <td mat-cell *matCellDef="let element"> {{element.id | date:'medium'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="favorite">
+      <th mat-header-cell *matHeaderCellDef> Favorite</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.favorite.img" class="fav-img" onerror="this.src='../../assets/default.svg'">
+        <a target="_blank" [href]="element.favorite.url">{{element.favorite.name}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element"><mat-icon (click)="deleteAction(element)">delete</mat-icon></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

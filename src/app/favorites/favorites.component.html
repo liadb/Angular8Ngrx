@@ -1,0 +1,33 @@
+<div class="search-box">
+  <mat-form-field>
+    <input matInput #search type="text" name="search" placeholder="Search favorite"
+           [(ngModel)]="searchText">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<div class="favorite-list">
+  <mat-card class="add-favorite">
+    <button mat-button (click)="onAddClick()">+</button>
+  </mat-card>
+  <div *ngFor="let favorite of favorites$ | async | search:searchText"  >
+    <mat-card class="favorite-card">
+      <mat-card-header>
+        <mat-card-title>{{favorite.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image class="favorite-img" [src]="favorite.img" alt="{{favorite.name}}"
+           onerror="this.src='../../assets/default.svg'">
+      <mat-card-actions>
+        <button mat-icon-button (click)="onOpenClick(favorite)">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onODeleteClick(favorite)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onOEditClick(favorite)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
